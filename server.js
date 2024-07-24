@@ -47,6 +47,47 @@ app.get("/api/notes/:id", (req, res) => {
   res.status(200).json(note);
 });
 
+// POST request to add a note
+app.post("/api/notes", (req, res) => {
+  console.info(`${req.method} request received to add a note`);
+
+  if (req.body?.title && req.body?.text) {
+    const newNote = {
+      title: req.body.title,
+      text: req.body.text,
+      id: id(),
+    };
+
+    notes.push(newNote);
+
+    return res.status(201).json({
+      status: "success",
+      data: newNote,
+    });
+  } else {
+    return res
+      .status(400)
+      .json("Request body must at least contain a title and text");
+  }
+});
+
+// DELETE request to delete a note
+app.delete("/api/notes/:id", (req, res) => {
+  const { id } = req.params;
+  const noteIndex = notes.findIndex((note) => note.id == id);
+
+  if (noteIndex === -1) {
+    return res.status(404).json("Note not found!");
+  }
+
+  notes.splice(noteIndex, 1);
+
+  return res.status(200).json({
+    status: "success",
+    message: "Note deleted successfully",
+  });
+});
+
 app.listen(PORT, () =>
   console.log(`Example app listening at http://localhost:${PORT}`)
 );
