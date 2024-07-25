@@ -4,22 +4,4 @@ const id = () => {
     .substring(1);
 };
 
-const notes = [
-  {
-    title: "Research API",
-    text: "Investigate potential server-side APIs for new website project.",
-    id: id(),
-  },
-  {
-    title: "Website Project",
-    text: "Collaborating with team members to finalize the design.",
-    id: id(),
-  },
-  {
-    title: "Update Documentation",
-    text: "Revise readme documentation.",
-    id: id(),
-  },
-];
-
-module.exports = { notes, id };
+module.exports = { id };
