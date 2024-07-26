@@ -12,7 +12,7 @@ This note application allows users to write and save notes, enabling them to org
 
 ## Usage
 
-1. Open the application via this [Link to the application]().
+1. Open the application via this [Link to the application](https://c11-express-js-note-taker.onrender.com/).
 2. Click the "Get Started" button on the landing page.
 3. On the notes page, view existing notes or create a new note by entering a title and text.
 4. Save the new note by clicking the "Save Note" button.
